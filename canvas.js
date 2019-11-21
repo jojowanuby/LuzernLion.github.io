@@ -12,14 +12,11 @@ var colors = [
 ];
 var loopId, canvas, ctx;
 
-document.addEventListener("DOMContentLoaded", function(event) {
-  init();
-});
+init()
 
 function init() {
   //Get canvas & context
-  canvas = document.getElementById("myCanvas");
-  canvas.width = window.innerWidth;
+   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx = canvas.getContext("2d");
   size = Math.min(window.innerWidth, window.innerHeight) / 50;
@@ -60,7 +57,7 @@ function drawCat() {
 
 function updateTailAngle() {
   iterator += speed;
-  angle = Math.sin(iterator * Math.PI / 180) * 2.5;
+  angle = Math.sin(iterator * Math.PI / 180) * 1.5;
   /*if (iterator >= 180 || iterator <= 0){
 		speed = -speed;
 	}*/
@@ -72,33 +69,113 @@ function drawBody() {
   ctx.save();
 
   ctx.translate(canvas.width / 2, canvas.height / 2);
-
-  //cuerpo 1
+ 
+  //Foot head
   ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(-5 * size, 12 * size);
-  ctx.lineTo(12 * size, 12 * size);
+  ctx.moveTo(-22, 0);
+  ctx.lineTo(-28 * size, 0* size);
+  ctx.lineTo(-28 * size, -1* size);
+  ctx.lineTo(-26 * size, -4* size);
+  ctx.lineTo(-24 * size, -4* size);
+  ctx.lineTo(-22 * size, -2* size);
+  ctx.lineTo(-22 * size, -0* size);
   ctx.closePath();
-  ctx.fillStyle = colors[2];
+  ctx.fillStyle = colors[0];
+  ctx.fill(); 
+
+
+   //Foot back
+   ctx.beginPath();
+   ctx.moveTo(6* size, 0);
+   ctx.lineTo(5 * size, 1* size);
+   ctx.lineTo(5 * size, 2* size);
+   ctx.lineTo(20 * size, 2* size);
+   ctx.lineTo(21 * size, 0* size);
+   ctx.lineTo(21 * size, -4* size);
+   ctx.lineTo(15 * size, -9* size);
+   ctx.lineTo(13 * size, -10* size);
+   ctx.lineTo(8 * size, -10* size);
+   ctx.lineTo(7 * size, -9* size);
+   ctx.lineTo(7 * size, -6* size);
+   ctx.lineTo(8 * size, -4* size);
+   ctx.lineTo(12 * size, -2* size);
+   ctx.lineTo(10 * size, -1* size);
+   ctx.lineTo(6 * size, -0* size);
+   ctx.closePath();
+   ctx.fillStyle = colors[0];
+   ctx.fill(); 
+
+
+
+  //corpus
+  ctx.beginPath();
+  ctx.moveTo(0* size, -10* size);
+  ctx.lineTo(-3 * size, -11* size);
+  ctx.lineTo(-5 * size, -14* size);
+  ctx.lineTo(-8 * size, -14* size);
+  ctx.lineTo(-10 * size, -9* size);
+  ctx.lineTo(-12 * size, -8* size);
+  ctx.lineTo(-11 * size, -2* size);
+  ctx.lineTo(-13 * size, -0* size);
+  ctx.lineTo(-20 * size, 7* size);
+  ctx.lineTo(-20 * size, 9* size);
+  ctx.lineTo(-15 * size, 9* size);
+  ctx.lineTo(-15 * size, 6* size);
+  ctx.lineTo(-6 * size, 1* size);
+  ctx.lineTo(-5 * size, 0* size);
+  ctx.lineTo(4 * size, 0* size);
+  ctx.lineTo(4 * size, -2* size);
+  ctx.lineTo(5 * size, -3* size);
+  ctx.lineTo(8 * size, -3* size);
+  ctx.lineTo(10 * size, -1* size);
+  ctx.lineTo(12 * size, -2* size);
+  ctx.lineTo(8 * size, -4* size);
+  ctx.lineTo(7 * size, -6* size);
+  ctx.lineTo(7 * size, -9* size);
+  ctx.lineTo(3 * size, -9* size);
+  ctx.lineTo(0 * size, -10* size);
+  ctx.lineTo(-3 * size, -11* size);
+  ctx.closePath();
+  ctx.fillStyle = colors[1];
   ctx.fill();
 
-  //cuerpo 2
+  //front arm line
   ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(12 * size, 12 * size);
-  ctx.lineTo(10 * size, -5 * size);
+  ctx.moveTo(-5 * size, 0 * size);
+  ctx.lineTo(-6 * size, -2 * size);
+  ctx.lineTo(-6 * size, -6 * size);
+  ctx.lineTo(-5 * size, -7 * size);
+  ctx.lineTo(-6 * size, -6 * size)
+  ctx.lineTo(-6 * size, -2 * size);
+  ctx.closePath();
+  ctx.lineWidth = size * 0.2;
+  ctx.strokeStyle = colors[0];
+  ctx.stroke();
+
+  //Foot
+  ctx.beginPath();
+  ctx.moveTo(10* size, -1* size);
+  ctx.lineTo(8 * size, -3* size);
+  ctx.lineTo(6 * size, -2* size);
+  ctx.lineTo(6 * size, -0* size);
+  ctx.lineTo(10 * size, -1* size);
+  ctx.closePath();
+  ctx.fillStyle = colors[2];
+  ctx.fill(); 
+
+  //tatze
+  ctx.beginPath();
+  ctx.moveTo(6* size, 0* size);
+  ctx.lineTo(4 * size, 0* size);
+  ctx.lineTo(4 * size, -2* size);
+  ctx.lineTo(5 * size, -3* size);
+  ctx.lineTo(8 * size, -3* size);
+  ctx.lineTo(6 * size, -2* size);
+  ctx.lineTo(6 * size, -0* size);
   ctx.closePath();
   ctx.fillStyle = colors[0];
   ctx.fill();
 
-  //cuerpo 3
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.lineTo(10 * size, -5 * size);
-  ctx.lineTo(3 * size, -14 * size);
-  ctx.closePath();
-  ctx.fillStyle = colors[1];
-  ctx.fill();
 
   ctx.restore();
 }
@@ -109,56 +186,101 @@ function drawHead() {
 
   ctx.translate(canvas.width / 2, canvas.height / 2);
 
-  //cabeza
+  //Face
   ctx.beginPath();
-  ctx.moveTo(1 * size, -8 * size);
-  ctx.lineTo(-4 * size, -8 * size);
-  ctx.lineTo(-6 * size, -15 * size);
-  ctx.lineTo(4 * size, -15 * size);
+  ctx.moveTo(-22 * size, -2 * size);
+  ctx.lineTo(-24 * size, -4 * size);
+  ctx.lineTo(-25 * size, -6 * size);
+  ctx.lineTo(-26 * size, -9 * size);
+  ctx.lineTo(-25 * size, -12* size);
+  ctx.lineTo(-19 * size, -12* size);
+  ctx.lineTo(-17 * size, -8* size);
+  ctx.lineTo(-16 * size, -4* size);
+  ctx.lineTo(-16 * size, -3* size);
+  ctx.lineTo(-18 * size, -1* size);
   ctx.closePath();
   ctx.fillStyle = colors[1];
   ctx.fill();
 
-  //nariz
+  //hair
   ctx.beginPath();
-  ctx.moveTo(-2 * size, -10 * size);
-  ctx.lineTo(-3 * size, -11 * size);
-  ctx.lineTo(-1 * size, -11 * size);
+  ctx.moveTo(-26 * size, -9 * size);
+  ctx.lineTo(-25 * size, -12 * size);
+  ctx.lineTo(-22 * size, -15 * size);
+  ctx.lineTo(-17 * size, -17 * size);
+  ctx.lineTo(-11 * size, -16* size);
+  ctx.lineTo(-8 * size, -14* size);
+  ctx.lineTo(-10 * size, -9* size);
+  ctx.lineTo(-12 * size, -8* size);
+  ctx.lineTo(-11 * size, -2* size);
+  ctx.lineTo(-13 * size, -0* size);
+  ctx.lineTo(-16 * size, -3* size);
+  ctx.lineTo(-16 * size, -4* size);
+  ctx.lineTo(-17 * size, -8* size);
+  ctx.lineTo(-19 * size, -12* size);
+  ctx.lineTo(-23 * size, -12* size);
+  ctx.lineTo(-26 * size, -9* size);
   ctx.closePath();
   ctx.fillStyle = colors[0];
   ctx.fill();
 
-  //oreja 1
+  //noze
   ctx.beginPath();
-  ctx.moveTo(-3 * size, -15 * size);
-  ctx.lineTo(-6 * size, -16 * size);
-  ctx.lineTo(-4 * size, -20 * size);
+  ctx.moveTo(-21 * size, -5 * size);
+  ctx.lineTo(-22 * size, -5 * size);
+  ctx.lineTo(-23 * size, -4 * size);
+  ctx.lineTo(-23 * size, -5 * size);
+  ctx.lineTo(-21 * size, -7 * size);
+  ctx.lineTo(-20 * size, -7 * size);
+  ctx.lineTo(-21 * size, -6 * size);
   ctx.closePath();
   ctx.fillStyle = colors[0];
   ctx.fill();
 
-  //oreja 2
+  //Ear1
   ctx.beginPath();
-  ctx.moveTo(1 * size, -15 * size);
-  ctx.lineTo(4 * size, -16 * size);
-  ctx.lineTo(2 * size, -21 * size);
+  ctx.moveTo(-21 * size, -13 * size);
+  ctx.lineTo(-20 * size, -15 * size);
+  ctx.lineTo(-19 * size, -13 * size);
+  ctx.closePath();
+  ctx.fillStyle = colors[1];
+  ctx.fill();
+
+  
+  //Eye
+  ctx.beginPath();
+  ctx.moveTo(-25 * size, -6 * size);
+  ctx.lineTo(-25 * size, -7 * size);
+  ctx.lineTo(-24 * size, -7 * size);
   ctx.closePath();
   ctx.fillStyle = colors[0];
   ctx.fill();
 
-  //ojo 1
+  //Eye2
   ctx.beginPath();
-  ctx.moveTo(-5 * size, -12 * size);
-  ctx.lineTo(-3 * size, -12 * size);
+  ctx.moveTo(-22 * size, -10 * size);
+  ctx.lineTo(-20.5 * size, -10 * size);
+  ctx.lineTo(-22 * size, -9 * size);
   ctx.closePath();
-  ctx.lineWidth = size * 0.2;
-  ctx.strokeStyle = colors[0];
-  ctx.stroke();
+  ctx.fillStyle = colors[0];
+  ctx.fill();
 
-  //ojo 2
+  //Moul
   ctx.beginPath();
-  ctx.moveTo(-1 * size, -12 * size);
-  ctx.lineTo(2 * size, -12 * size);
+  ctx.moveTo(-21.5 * size, -3 * size);
+  ctx.lineTo(-19 * size, -5.5 * size);
+  ctx.lineTo(-17 * size, -5 * size);
+  ctx.lineTo(-19 * size, -4 * size);
+  ctx.lineTo(-21 * size, -2 * size);
+  ctx.lineTo(-21.5 * size, -3 * size);
+  ctx.closePath();
+  ctx.fillStyle = colors[0];
+  ctx.fill();
+
+  //lipp
+  ctx.beginPath();
+  ctx.moveTo(-21 * size, -5 * size);
+  ctx.lineTo(-20 * size, -4 * size);
   ctx.closePath();
   ctx.lineWidth = size * 0.2;
   ctx.strokeStyle = colors[0];
@@ -171,44 +293,40 @@ function drawTail() {
 
   ctx.save();
 
-  ctx.translate(canvas.width / 2 + 12 * size, canvas.height / 2 + 12 * size);
+  ctx.translate(canvas.width / 2 +21*size, canvas.height / 2+-4*size );
   ctx.rotate(angle * Math.PI / 180);
 
-  //cola 1
+  //Tail
   ctx.beginPath();
   ctx.moveTo(0, 0);
-  ctx.lineTo(2 * size, -13 * size);
-  ctx.lineTo(0, -13 * size);
-  ctx.closePath();
-  ctx.fillStyle = colors[0];
-  ctx.fill();
-
-  //cola 2
-  ctx.beginPath();
-  ctx.moveTo(0, -13 * size);
-  ctx.lineTo(2 * size, -13 * size);
-  ctx.lineTo(-2 * size, -19 * size);
-  ctx.closePath();
-  ctx.fillStyle = colors[0];
-  ctx.fill();
-
-  //cola 3
-  ctx.beginPath();
-  ctx.moveTo(-2 * size, -19 * size);
-  ctx.lineTo(-1 * size, -17.5 * size);
-  ctx.lineTo(2 * size, -23 * size);
+  ctx.lineTo(2 * size, 3 * size);
+  ctx.lineTo(3* size, 7 * size);
+  ctx.lineTo(2* size, 9 * size);
+  ctx.lineTo(-4* size, 11 * size);
+  ctx.lineTo(-10* size, 10 * size);
+  ctx.lineTo(-19* size, 10 * size);
+  ctx.lineTo(-21* size, 8 * size);
+  ctx.lineTo(-9* size, 8 * size);
+  ctx.lineTo(-4* size, 9 * size);
+  ctx.lineTo(1* size, 7 * size);
+  ctx.lineTo(0* size, 4 * size);
   ctx.closePath();
   ctx.fillStyle = colors[1];
   ctx.fill();
 
-  //cola 4
+  //Tail tip
   ctx.beginPath();
-  ctx.moveTo(2 * size, -23 * size);
-  ctx.lineTo(3 * size, -19 * size);
-  ctx.lineTo(1 * size, -21.2 * size);
+  ctx.moveTo(-19* size, 10* size);
+  ctx.lineTo(-21 * size, 8 * size);
+  ctx.lineTo(-23 * size, 11 * size);
+  ctx.lineTo(-23 * size, 12 * size);
+  ctx.lineTo(-21 * size, 12 * size);
+  ctx.lineTo(-19 * size, 10 * size);
+
   ctx.closePath();
-  ctx.fillStyle = colors[1];
+  ctx.fillStyle = colors[0];
   ctx.fill();
+
 
   ctx.restore();
 }
