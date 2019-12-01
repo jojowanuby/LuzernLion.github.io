@@ -2,10 +2,16 @@ Cookies.set('datelog', 'true', { expires: 7 , domain: 'jojowanuby.github.io/Test
 
 var myCookie = Cookies.get('datelog');
 
-window.onload = function() {
-localStorage.setItem("Date" +datetime)
+var n = 1;
+window.onload = function(){
+n++;
+return this.n;
+//auch wenn man in console localstorage eingiebt leider value als undefined!!!!!
 }
 
+window.onload = function() {
+localStorage.setItem("Date"+n ,datetime)
+}
 
 //auch wenn man in console myCookie eingiebt leider value als undefined!!!!!
 console.log(myCookie);
