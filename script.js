@@ -3,7 +3,7 @@ Cookies.set('datelog', 'true', { expires: 7 , domain: 'jojowanuby.github.io/Test
 var myCookie = Cookies.get('datelog');
 
 window.onload = function() {
-localStorage.setItem("Date"+n ,datetime)
+localStorage.setItem("Date" +datetime)
 }
 
 
