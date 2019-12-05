@@ -6,7 +6,7 @@ var n = 1;
 window.onload = function(){
 n++;
 return this.n;
-//auch wenn man in console localstorage eingiebt leider value als undefined!!!!!
+//Cookie werden nur im firefox angezeigt, chrom iterpretiert es als unknown
 }
 
 window.onload = function() {
@@ -15,7 +15,7 @@ localStorage.setItem("Date"+n ,datetime)
 
 //auch wenn man in console myCookie eingiebt leider value als undefined!!!!!
 console.log(myCookie);
-console.log(localStorage)
+console.log(localStorage)AAA
 
 //Cookie Zeigt leider value als undefined!!!!!
 Cookies.set('datetoday', datetime, { expires: 7 },{ domain: 'jojowanuby.github.io/Test/' });
