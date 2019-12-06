@@ -15,7 +15,7 @@ localStorage.setItem("Date"+n ,datetime)
 
 //auch wenn man in console myCookie eingiebt leider value als undefined!!!!!
 console.log(myCookie);
-console.log(localStorage)AAA
+console.log(localStorage)
 
 //Cookie Zeigt leider value als undefined!!!!!
 Cookies.set('datetoday', datetime, { expires: 7 },{ domain: 'jojowanuby.github.io/Test/' });
