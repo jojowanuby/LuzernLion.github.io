@@ -1,6 +1,11 @@
 
 /* Tittel annimation-->*/
-header {
+.test {
+
+  position: relative;
+  height: 100vh;
+}
+.hedintro {
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -30,7 +35,7 @@ header {
   color: #fff;
   background-color:  rgba(174,174,174, .8);;
   mix-blend-mode: multiply;
-  opacity: 0;
+  opacity: 1;
   animation: fadeInText 2s 1.5s ease-out forwards;
 }
 
