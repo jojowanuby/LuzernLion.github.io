@@ -16,7 +16,7 @@ init()
 
 function init() {
   //Get canvas & context
-   canvas.width = window.innerWidth;
+  canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   ctx = canvas.getContext("2d");
   size = Math.min(window.innerWidth, window.innerHeight) / 50;
