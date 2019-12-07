@@ -52,21 +52,11 @@ nav ul a {
   font-size: 12px;
 }
 a {
-  position: fixed;
-  top: 0px;
-  max-height: 70px;
-  z-index: 999;
-  width: 100%;
-  padding-top: 17px;
+  text-decoration: none;
+  color: #888888;
+  display: block;
   background: none;
   overflow: hidden;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  opacity: 0;
-  top: -100px;
-  padding-bottom: 6px;
-  font-family: "Montserrat", sans-serif;
-
 }
 
 
@@ -77,6 +67,7 @@ a {
   -moz-background-size: cover;
   background-size: cover;
   text-align: center;
+  opacity:0.10;
   color: #fff;
   padding-top: 110px;
   min-height: 500px;
