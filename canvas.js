@@ -1,3 +1,6 @@
+//inspiration: https://codepen.io/FabioG/pen/JdmJLK
+
+
 var canvas = document.querySelector('canvas')
 
 
